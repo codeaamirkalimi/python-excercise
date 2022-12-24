@@ -13,3 +13,5 @@ newObj.printAge()
 
 print(p1.g)
 print(p1.age)
+
+print(dir(Classss))
