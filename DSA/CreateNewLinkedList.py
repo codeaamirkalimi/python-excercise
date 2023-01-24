@@ -19,6 +19,16 @@ class LinkedList:
         self.head = Node(data)
         self.head.next = temp
 
+    def addLastNodeToLinkedList(self, data):
+        newNode = Node(data)
+        if self.head == 'None':
+            self.head = newNode
+        else:
+            lastNode = self.head
+            while lastNode.next:
+                lastNode = lastNode.next
+            lastNode.next = newNode
+
 
 if __name__ == "__main__":
     llist = LinkedList()
@@ -33,4 +43,10 @@ if __name__ == "__main__":
     llist.printLinkedList()
     print("\n---------------------")
     llist.addFirstNodeToLinkedList(5)
+    llist.printLinkedList()
+    print("\n---------------------")
+    llist.addLastNodeToLinkedList(6)
+    llist.printLinkedList()
+    print("\n---------------------")
+    llist.addLastNodeToLinkedList(8)
     llist.printLinkedList()
