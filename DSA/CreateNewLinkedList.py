@@ -29,6 +29,15 @@ class LinkedList:
                 lastNode = lastNode.next
             lastNode.next = newNode
 
+    def search(self, key):
+        checkNode = self.head
+        while checkNode is not None:
+            if checkNode.data == key:
+                return True
+            else:
+                checkNode = checkNode.next
+        return False
+
 
 if __name__ == "__main__":
     llist = LinkedList()
@@ -49,4 +58,7 @@ if __name__ == "__main__":
     llist.printLinkedList()
     print("\n---------------------")
     llist.addLastNodeToLinkedList(8)
+    llist.printLinkedList()
+    print("\n---------------------")
+    print(llist.search(54))
     llist.printLinkedList()
