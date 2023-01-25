@@ -43,6 +43,15 @@ class DoublyLinkedList:
             temp.prev = last
             last.next = temp
 
+    def searchValue(self, value):
+        temp = self.head
+        while temp is not None:
+            if temp.data == value:
+                print("\nTrue\n")
+                return
+            temp = temp.next
+        print("\nFalse\n")
+
 
 if __name__ == "__main__":
     doublyLinkedList = DoublyLinkedList()
@@ -71,3 +80,6 @@ if __name__ == "__main__":
     print("\n********************\n")
     doublyLinkedList.insertLast(500)
     doublyLinkedList.printDoublyLinkedList()
+    doublyLinkedList.searchValue(20)
+    doublyLinkedList.searchValue(10)
+    doublyLinkedList.searchValue(100)
