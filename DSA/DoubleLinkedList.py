@@ -30,6 +30,19 @@ class DoublyLinkedList:
         self.head.next = temp
         temp.prev = self.head
 
+    def insertLast(self, data):
+        global last
+        temp = self.head
+        if temp.next is None:
+            self.head.data = data
+        else:
+            while temp.next is not None:
+                temp = temp.next
+            last = temp
+            temp = Node(data)
+            temp.prev = last
+            last.next = temp
+
 
 if __name__ == "__main__":
     doublyLinkedList = DoublyLinkedList()
@@ -51,4 +64,10 @@ if __name__ == "__main__":
     doublyLinkedList.printDoublyLinkedList()
     print("\n********************\n")
     doublyLinkedList.insertFirst(80)
+    doublyLinkedList.printDoublyLinkedList()
+    print("\n********************\n")
+    doublyLinkedList.insertLast(1000)
+    doublyLinkedList.printDoublyLinkedList()
+    print("\n********************\n")
+    doublyLinkedList.insertLast(500)
     doublyLinkedList.printDoublyLinkedList()
