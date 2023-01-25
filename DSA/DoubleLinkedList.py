@@ -52,6 +52,21 @@ class DoublyLinkedList:
             temp = temp.next
         print("\nFalse\n")
 
+    def deleteNode(self, key):
+        temp = self.head
+        if temp.data == key:
+            if temp.next is not None:
+                self.head = temp.next
+                temp.prev = None
+            else:
+                self.head = None
+        else:
+            while temp.next is not None:
+                if temp.next.data == key:
+                    temp.next = temp.next.next
+                    temp.next.next.prev = temp
+                temp = temp.next
+
 
 if __name__ == "__main__":
     doublyLinkedList = DoublyLinkedList()
@@ -83,3 +98,13 @@ if __name__ == "__main__":
     doublyLinkedList.searchValue(20)
     doublyLinkedList.searchValue(10)
     doublyLinkedList.searchValue(100)
+    print("\n********************\n")
+    doublyLinkedList.printDoublyLinkedList()
+    doublyLinkedList.deleteNode(20)
+    doublyLinkedList.printDoublyLinkedList()
+    doublyLinkedList.deleteNode(60)
+    doublyLinkedList.printDoublyLinkedList()
+    doublyLinkedList.deleteNode(1000)
+    doublyLinkedList.printDoublyLinkedList()
+    doublyLinkedList.deleteNode(500)
+    doublyLinkedList.printDoublyLinkedList()
