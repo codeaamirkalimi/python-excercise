@@ -24,6 +24,12 @@ class DoublyLinkedList:
             print(temp.data, end=" ")
             temp = temp.prev
 
+    def insertFirst(self, data):
+        temp = self.head
+        self.head = Node(data)
+        self.head.next = temp
+        temp.prev = self.head
+
 
 if __name__ == "__main__":
     doublyLinkedList = DoublyLinkedList()
@@ -39,4 +45,10 @@ if __name__ == "__main__":
     thirdNode.next = fourthNode
     fourthNode.prev = thirdNode
 
+    doublyLinkedList.printDoublyLinkedList()
+    print("\n********************\n")
+    doublyLinkedList.insertFirst(40)
+    doublyLinkedList.printDoublyLinkedList()
+    print("\n********************\n")
+    doublyLinkedList.insertFirst(80)
     doublyLinkedList.printDoublyLinkedList()
