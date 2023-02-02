@@ -16,8 +16,30 @@ class CircularLinkedList:
             if temp == self.head:
                 break
 
-    # adding node at the beginning of Circular Linked List
+    def addNodeAtStart(self, data):
+        newNode = Node(data)
+        temp = self.head
+        if temp == None:
+            newNode.next = newNode
+            self.head = newNode
+        else:
+            lastNode = self.head
+            while lastNode.next != self.head:
+                lastNode = lastNode.next
+
+            newNode.next = self.head
+            self.head = newNode
+            lastNode.next = newNode
+
     # inserting node at the end of the Circular Linked List
+    def insertAtEnd(self, data):
+        newNode = Node(data)
+        lastNode = self.head
+        while lastNode.next != self.head:
+            lastNode = lastNode.next
+
+        lastNode.next = newNode
+        newNode.next = self.head
     # search node in circular linked list
     # deleting node in circular linked list
 
@@ -32,3 +54,8 @@ if __name__ == '__main__':
     last.next = circularLinkedList.head
     circularLinkedList.printCircularLinkedList()
     print("\n******************\n")
+    circularLinkedList.addNodeAtStart(5)
+    circularLinkedList.printCircularLinkedList()
+    print("\n******************\n")
+    circularLinkedList.insertAtEnd(35)
+    circularLinkedList.printCircularLinkedList()
